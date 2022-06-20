@@ -35,7 +35,6 @@ public class SystemPortfolio {
     
     private SystemPortfolio() {
 	super();
-        this.id = id;
 	this.redesSociales = new ArrayList<RedSocial>();
 	this.acercaDe = new AcercaDe();
         this.educacion = new ArrayList<Educacion>();
