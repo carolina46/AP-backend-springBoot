@@ -9,6 +9,6 @@ import com.apbackendspringBoot.model.AcercaDe;
 public interface IAcercaDeService {
     
     public void guardarAcercaDe(AcercaDe acercaDe);
-    public AcercaDe verAcercaDe(Long id);
+    public AcercaDe verAcercaDe();
 }
 

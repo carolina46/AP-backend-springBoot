@@ -4,11 +4,13 @@ package com.apbackendspringBoot.service;
 import com.apbackendspringBoot.model.Usuario;
 import com.apbackendspringBoot.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Carolina veronica Perez
  */
+@Service
 public class UsuarioService implements IUsuarioService{
     
     @Autowired
