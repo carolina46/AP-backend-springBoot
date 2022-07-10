@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/acercaDe/")
+
 public class AcercaDeController {
     
       
@@ -32,7 +33,7 @@ public class AcercaDeController {
       return acercaDeService.verAcercaDe();
     }
     
-    @PutMapping("/guardar")
+    @PostMapping("/guardar")
     public void guardarAcercaDe(@RequestBody AcercaDe acercaDe){
         acercaDeService.guardarAcercaDe(acercaDe);
     }
