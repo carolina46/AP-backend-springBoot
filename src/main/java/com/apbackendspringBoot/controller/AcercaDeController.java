@@ -6,6 +6,7 @@ import com.apbackendspringBoot.service.IAcercaDeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,7 +32,7 @@ public class AcercaDeController {
       return acercaDeService.verAcercaDe();
     }
     
-    @PostMapping ("/guardar")
+    @PutMapping("/guardar")
     public void guardarAcercaDe(@RequestBody AcercaDe acercaDe){
         acercaDeService.guardarAcercaDe(acercaDe);
     }
