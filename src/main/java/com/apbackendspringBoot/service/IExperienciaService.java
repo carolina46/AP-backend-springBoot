@@ -9,8 +9,8 @@ import java.util.List;
  */
 public interface IExperienciaService {
     
-    public void guardarExperiencia(Experiencia experiencia);
+    public Experiencia guardarExperiencia(Experiencia experiencia);
     public List<Experiencia> listarExperiencias();
-    public void borrarExperiencia(Long id);
+    public boolean borrarExperiencia(Long id);
     public Experiencia verExperiencia(Long id);
 }

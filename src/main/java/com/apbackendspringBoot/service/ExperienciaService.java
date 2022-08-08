@@ -18,8 +18,8 @@ public class ExperienciaService implements IExperienciaService{
     public ExperienciaRepository experienciaRepository;
     
     @Override
-    public void guardarExperiencia(Experiencia experiencia) {
-        experienciaRepository.save(experiencia);
+    public Experiencia guardarExperiencia(Experiencia experiencia) {
+       return  experienciaRepository.save(experiencia);
     }
 
     @Override
@@ -28,8 +28,9 @@ public class ExperienciaService implements IExperienciaService{
     }
 
     @Override
-    public void borrarExperiencia(Long id) {
+    public boolean borrarExperiencia(Long id) {
         experienciaRepository.deleteById(id);
+        return verExperiencia(id)==null;
     }
 
     @Override
