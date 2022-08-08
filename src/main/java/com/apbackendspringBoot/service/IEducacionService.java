@@ -9,8 +9,8 @@ import java.util.List;
  */
 public interface IEducacionService {
     
-    public void guardarEducacion(Educacion educacion);
+    public Educacion guardarEducacion(Educacion educacion);
     public List<Educacion> listarEducacion();
-    public void borrarEducacion(Long id);
+    public boolean borrarEducacion(Long id);
     public Educacion verEducacion(Long id);
 }

@@ -18,8 +18,8 @@ public class EducacionService implements IEducacionService{
     public EducacionRepository educacionRepository;
     
     @Override
-    public void guardarEducacion(Educacion educacion) {
-        educacionRepository.save(educacion);
+    public Educacion guardarEducacion(Educacion educacion) {
+        return educacionRepository.save(educacion);
     }
 
     @Override
@@ -28,8 +28,9 @@ public class EducacionService implements IEducacionService{
     }
 
     @Override
-    public void borrarEducacion(Long id) {
+    public boolean borrarEducacion(Long id) {
         educacionRepository.deleteById(id);
+        return verEducacion(id)==null;
     }
 
     @Override
