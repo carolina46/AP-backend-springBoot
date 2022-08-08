@@ -20,13 +20,13 @@ public class AcercaDeService implements IAcercaDeService{
     public AcercaDeRepository acercaDeRepository;
 
     @Override
-    public void guardarAcercaDe(AcercaDe acercaDe) {
+    public boolean guardarAcercaDe(AcercaDe acercaDe) {
        List<AcercaDe> listaAcercaDe =acercaDeRepository.findAll();
        if(!listaAcercaDe.isEmpty()){
          Long id = listaAcercaDe.get(0).getId();
          acercaDe.setId(id);
        }
-       acercaDeRepository.save(acercaDe);
+       return acercaDeRepository.save(acercaDe) != null;
     }
 
     @Override

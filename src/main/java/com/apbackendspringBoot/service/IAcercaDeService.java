@@ -8,7 +8,7 @@ import com.apbackendspringBoot.model.AcercaDe;
 
 public interface IAcercaDeService {
     
-    public void guardarAcercaDe(AcercaDe acercaDe);
+    public boolean guardarAcercaDe(AcercaDe acercaDe);
     public AcercaDe verAcercaDe();
 }
 

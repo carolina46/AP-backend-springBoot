@@ -1,6 +1,7 @@
 
 package com.apbackendspringBoot.model;
 
+import javax.persistence.Basic;
 import lombok.Getter;
 import lombok.Setter;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Lob;
 
 /**
  *
@@ -24,7 +26,7 @@ public class AcercaDe {
         
     private String nombreCompleto;
     
-    @Column(columnDefinition = "TEXT")
+    @Lob
     private String fotoPerfil;
    
     private String titulo;
@@ -32,10 +34,15 @@ public class AcercaDe {
     @Column(columnDefinition = "TEXT")
     private String informacionPersonal;
     
-    @Column(columnDefinition = "TEXT")
+    @Lob 
     private String banner;
     
-    public AcercaDe(){}
+    public AcercaDe(){
+        this.nombreCompleto = "";
+        this.fotoPerfil = "";
+        this.titulo = "";
+        this.informacionPersonal = "";
+        this.banner = "";}
 
     public AcercaDe(Long id, String nombreCompleto, String fotoPerfil, String titulo, String informacionPersonal, String banner) {
         this.id = id;
