@@ -1,9 +1,12 @@
 
 package com.apbackendspringBoot.model;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import java.util.ArrayList;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -33,14 +36,16 @@ public class Proyecto {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date hasta;
     private String link;
+    
     @Lob 
-    private String[] imagenes;
+    private ArrayList<String> imagenes;
+    
     private int posicion;
     
     
     public Proyecto(){}
 
-    public Proyecto(Long id, String nombre, String descripcion, Date desde, Date hasta, String link, String[] imagenes, int posicion) {
+    public Proyecto(Long id, String nombre, String descripcion, Date desde, Date hasta, String link, ArrayList<String>  imagenes, int posicion) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
