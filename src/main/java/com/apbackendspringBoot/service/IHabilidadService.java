@@ -9,8 +9,8 @@ import java.util.List;
  */
 public interface IHabilidadService {
     
-    public void guardarHabilidad(Habilidad habilidad);
+    public Habilidad guardarHabilidad(Habilidad habilidad);
     public List<Habilidad> listarHabilidades();
-    public void borrarHabilidad(Long id);
+    public boolean borrarHabilidad(Long id);
     public Habilidad verHabilidad(Long id);
 } 

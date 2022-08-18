@@ -18,8 +18,8 @@ public class HabilidadService implements IHabilidadService{
     public HabilidadRepository habilidadRepository;
     
     @Override
-    public void guardarHabilidad(Habilidad habilidad) {
-        habilidadRepository.save(habilidad);
+    public Habilidad guardarHabilidad(Habilidad habilidad) {
+        return habilidadRepository.save(habilidad);
     }
 
     @Override
@@ -28,8 +28,9 @@ public class HabilidadService implements IHabilidadService{
     }
 
     @Override
-    public void borrarHabilidad(Long id) {
+    public boolean borrarHabilidad(Long id) {
         habilidadRepository.deleteById(id);
+        return verHabilidad(id) == null;
     }
 
     @Override

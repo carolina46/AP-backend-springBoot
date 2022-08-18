@@ -17,9 +17,14 @@ public class UsuarioService implements IUsuarioService{
     public UsuarioRepository usuarioRepository;
 
     @Override
-    public Usuario verUsuario(String nombre, String clave) {
-        Long id = new Long(1);
-        return usuarioRepository.findById(id).orElse(null);
+    public boolean comprobarUsuario(Usuario usuario) {
+        Usuario u = usuarioRepository.findById(usuario.getNombreUsuario()).orElse(null);
+        if(u!=null){
+            return u.getClave().equals(usuario.getClave());
+        }
+        else{
+            return false;
+        }
     }
 
 }

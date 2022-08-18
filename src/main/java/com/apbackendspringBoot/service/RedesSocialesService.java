@@ -1,40 +1,39 @@
 package com.apbackendspringBoot.service;
 
-import com.apbackendspringBoot.model.RedSocial;
-import com.apbackendspringBoot.repository.RedSocialRepository;
+import com.apbackendspringBoot.model.RedesSociales;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.apbackendspringBoot.repository.RedesSocialesRepository;
 
 /**
  *
  * @author Carolina Veronica Perez
  */
-
 @Service
-public class RedSocialService implements IRedSocialService{
+public class RedesSocialesService implements IRedesSocialesService {
 
     @Autowired
-    public RedSocialRepository redSocialRepository;
-    
+    public RedesSocialesRepository redesSocialesRepository;
+
     @Override
-    public void guardarRedSocial(RedSocial redSocial) {
-        redSocialRepository.save(redSocial);
+    public RedesSociales guardarRedesSociales(RedesSociales redSocial) {
+        List<RedesSociales> listaRedesSociales = redesSocialesRepository.findAll();
+        if (!listaRedesSociales.isEmpty()) {
+            Long id = listaRedesSociales.get(0).getId();
+            redSocial.setId(id);
+        }
+        return redesSocialesRepository.save(redSocial);
     }
 
     @Override
-    public List<RedSocial> listarRedSociales() {
-        return redSocialRepository.findAll();
+    public RedesSociales verRedesSociales() {
+        List<RedesSociales> listaRedesSociales = redesSocialesRepository.findAll();
+        if (listaRedesSociales.isEmpty()) {
+            return null;
+        } else {
+            return listaRedesSociales.get(0);
+        }
     }
 
-    @Override
-    public void borrarRedSocial(Long id) {
-        redSocialRepository.deleteById(id);
-    }
-
-    @Override
-    public RedSocial verRedSocial(Long id) {
-        return redSocialRepository.findById(id).orElse(null);
-    }
-    
 }

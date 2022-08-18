@@ -19,8 +19,8 @@ public class ProyectoService implements IProyectoService{
     public ProyectoRepository proyectoRepository;
     
     @Override
-    public void guardarProyecto(Proyecto proyecto) {
-        proyectoRepository.save(proyecto);
+    public Proyecto guardarProyecto(Proyecto proyecto) {
+        return proyectoRepository.save(proyecto);
     }
 
     @Override
@@ -29,8 +29,9 @@ public class ProyectoService implements IProyectoService{
     }
 
     @Override
-    public void borrarProyecto(Long id) {
+    public boolean borrarProyecto(Long id) {
         proyectoRepository.deleteById(id);
+        return verProyecto(id) == null;
     }
 
     @Override

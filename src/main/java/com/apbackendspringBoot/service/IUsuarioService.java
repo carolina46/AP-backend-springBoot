@@ -8,6 +8,6 @@ import com.apbackendspringBoot.model.Usuario;
 
 public interface IUsuarioService {
     
-    public Usuario verUsuario(String nombre, String clave);
+    public boolean comprobarUsuario(Usuario usuario);
     
 }

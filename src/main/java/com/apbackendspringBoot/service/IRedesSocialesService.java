@@ -1,16 +1,14 @@
 package com.apbackendspringBoot.service;
 
-import com.apbackendspringBoot.model.RedSocial;
-import java.util.List;
+import com.apbackendspringBoot.model.RedesSociales;
+
 
 /**
  *
  * @author Carolina Veronica Perez
  */
-public interface IRedSocialService {
+public interface IRedesSocialesService {
     
-    public void guardarRedSocial(RedSocial redSocial);
-    public List<RedSocial> listarRedSociales();
-    public void borrarRedSocial(Long id);
-    public RedSocial verRedSocial(Long id);
+    public RedesSociales guardarRedesSociales(RedesSociales redSocial);
+    public RedesSociales verRedesSociales();
 }

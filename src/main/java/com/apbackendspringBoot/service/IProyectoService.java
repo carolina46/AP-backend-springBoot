@@ -9,8 +9,8 @@ import java.util.List;
  */
 public interface IProyectoService {
     
-    public void guardarProyecto(Proyecto proyecto);
+    public Proyecto guardarProyecto(Proyecto proyecto);
     public List<Proyecto> listarProyectos();
-    public void borrarProyecto(Long id);
+    public boolean borrarProyecto(Long id);
     public Proyecto verProyecto(Long id);
 }
