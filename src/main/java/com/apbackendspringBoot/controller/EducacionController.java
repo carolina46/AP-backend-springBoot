@@ -5,6 +5,7 @@ import com.apbackendspringBoot.model.Experiencia;
 import com.apbackendspringBoot.service.IEducacionService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,26 +22,26 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping(value = "/educacion/")
+@CrossOrigin
 public class EducacionController {
     
     @Autowired
     private IEducacionService  educacionService;   
     
-    
-    @PostMapping("/agregar")
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/editarPortfolio/educacion/agregar")
     public Educacion guardarEducacion(@RequestBody Educacion educacion) {
         return educacionService.guardarEducacion(educacion);
     }
 
-    @GetMapping("/listar")
+    @GetMapping("/portfolio/educacion")
     @ResponseBody
     public List<Educacion> listarEducacion() {
         return educacionService.listarEducacion();
     }
-
-    @DeleteMapping("/eliminar/{id}")
+    
+    @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping("/editarPortfolio/educacion/eliminar/{id}")
     public boolean deleteById(@PathVariable("id") Long id) {
         return educacionService.borrarEducacion(id);
 

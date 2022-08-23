@@ -1,12 +1,10 @@
 
 package com.apbackendspringBoot.model;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import java.util.ArrayList;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;

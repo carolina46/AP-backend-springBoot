@@ -4,6 +4,7 @@ import com.apbackendspringBoot.model.Experiencia;
 import com.apbackendspringBoot.service.IExperienciaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,25 +21,26 @@ import org.springframework.web.bind.annotation.RestController;
  * bpdpmgudi1fs2wlxxxya-mysql.services.clever-cloud.com
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping(value = "/experiencia/")
+@CrossOrigin
 public class ExperienciaController {
 
     @Autowired
     private IExperienciaService experienciaService;
 
-    @PostMapping("/agregar")
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/editarPortfolio/experiencia/agregar")
     public Experiencia agregarExperiencia(@RequestBody Experiencia experiencia) {
         return experienciaService.guardarExperiencia(experiencia);
     }
 
-    @GetMapping("/listar")
+    @GetMapping("/portfolio/experiencia")
     @ResponseBody
     public List<Experiencia> listarExperiencia() {
         return experienciaService.listarExperiencias();
     }
 
-    @DeleteMapping("/eliminar/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping("/editarPortfolio/experiencia/eliminar/{id}")
     public boolean deleteById(@PathVariable("id") Long id) {
         return experienciaService.borrarExperiencia(id);
 
